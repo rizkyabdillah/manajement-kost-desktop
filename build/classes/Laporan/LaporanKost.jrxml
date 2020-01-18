@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="945" pageHeight="400" orientation="Landscape" columnWidth="905" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3df504fe-8084-4312-8b92-c74981b3df5f">
+	<property name="ireport.zoom" value="1.0000000000000007"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="filter" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     VIEW_KOST_RT.`id_kost`,
+     VIEW_KOST_RT.`nama_pemilik`,
+     VIEW_KOST_RT.`nama_kost`,
+     VIEW_KOST_RT.`jenis_kost`,
+     VIEW_KOST_RT.`alamat`,
+     VIEW_KOST_RT.`id_ketua_rt`,
+     VIEW_KOST_RT.`id_kompleks`
+FROM
+     `VIEW_KOST_RT` VIEW_KOST_RT
+$P!{filter}
+
+
+
+]]>
+	</queryString>
+	<field name="id_kost" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama_pemilik" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama_kost" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jenis_kost" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="alamat" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id_ketua_rt" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id_kompleks" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="160" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="905" height="160" backcolor="#16A085" uuid="68284263-f16e-46a8-bc4c-9c815d6ab806"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement mode="Transparent" x="202" y="26" width="500" height="55" forecolor="#FEFEFE" uuid="e7d6e4be-fad1-4584-bf9e-b33aa9e30e73"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Black" size="38" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LAPORAN KOST]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="202" y="81" width="500" height="20" forecolor="#FEFEFE" uuid="46ec4d34-b39b-4655-b651-24f5ab0e0844"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Kelurahan Tulus Rejo, Lowokwaru]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="202" y="101" width="500" height="20" forecolor="#FEFEFE" uuid="fca0cfee-08dd-4ac0-a0d9-f3010900fba7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Kota Malang]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="42" splitType="Stretch">
+			<rectangle>
+				<reportElement x="1" y="6" width="904" height="35" backcolor="#16A085" uuid="b0be7088-8173-4541-a619-51c87cfda8b9"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="5" y="9" width="100" height="28" forecolor="#FEFEFE" uuid="49f6cf2e-d7bc-403d-af4f-ba1cebb69848"/>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+					<font fontName="Lohit Devanagari" size="12"/>
+				</textElement>
+				<text><![CDATA[ID KOST]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="112" y="10" width="130" height="28" forecolor="#FEFEFE" uuid="cbe37725-bb31-4c95-9f09-e3ddd154135d"/>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+					<font fontName="Lohit Devanagari" size="12"/>
+				</textElement>
+				<text><![CDATA[NAMA PEMILIK]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="107" y="6" width="3" height="35" uuid="fbf23918-67bd-43ce-a01e-29331f04a927"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="245" y="6" width="3" height="35" uuid="95a8215f-737f-4237-886c-f03955d464ef"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="250" y="10" width="130" height="28" forecolor="#FEFEFE" uuid="0eb89464-68d1-4da0-ad9b-8d47d788862b"/>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+					<font fontName="Lohit Devanagari" size="12"/>
+				</textElement>
+				<text><![CDATA[NAMA KOST]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="382" y="6" width="3" height="35" uuid="fb5293ff-bb07-4c10-8d54-f3f8b391119b"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="387" y="10" width="100" height="28" forecolor="#FEFEFE" uuid="e221e79d-29c3-44ef-8208-c4486942b546"/>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+					<font fontName="Lohit Devanagari" size="12"/>
+				</textElement>
+				<text><![CDATA[JENIS KOST]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="490" y="6" width="3" height="35" uuid="af69c83e-bdec-401d-849c-38d8b05b0c7b"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="496" y="10" width="405" height="28" forecolor="#FEFEFE" uuid="c5b1b7e9-fa63-42f1-a58f-88182f0401e5"/>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+					<font fontName="Lohit Devanagari" size="12"/>
+				</textElement>
+				<text><![CDATA[ALAMAT]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="38" splitType="Stretch">
+			<rectangle>
+				<reportElement x="1" y="2" width="904" height="35" backcolor="#1ABC9C" uuid="14090900-70bf-4244-8fd9-0570fd132d6d"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="5" y="5" width="100" height="28" forecolor="#FEFEFE" uuid="a3abc85d-3516-4934-bd56-8ea76bd1e0fa"/>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+					<font fontName="Lohit Devanagari" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_kost}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="112" y="5" width="130" height="28" forecolor="#FEFEFE" uuid="b5ffaf75-92cc-49a0-8f3f-b26b0268804b"/>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+					<font fontName="Lohit Devanagari" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama_pemilik}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="107" y="2" width="3" height="35" uuid="c0762f7e-dfb0-4ebe-bcc3-73f53d132b0b"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="245" y="2" width="3" height="35" uuid="a8b5856e-0799-428a-820a-b40cd84e8bd3"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="250" y="5" width="130" height="28" forecolor="#FEFEFE" uuid="b59fb924-27e2-4ffd-8e8f-98ad474721bc"/>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+					<font fontName="Lohit Devanagari" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama_kost}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="382" y="2" width="3" height="35" uuid="a4a9f182-e9b0-4da8-9651-b40a240ce5af"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="387" y="5" width="100" height="28" forecolor="#FEFEFE" uuid="57643e8d-43eb-4a0f-992b-aecec630e733"/>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+					<font fontName="Lohit Devanagari" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Kost " + $F{jenis_kost}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="490" y="2" width="3" height="35" uuid="27effa0a-2dd2-49c5-a96b-36fbe57ff834"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="496" y="5" width="405" height="28" forecolor="#FEFEFE" uuid="c8a5aa26-0087-47d5-aa28-26f7b65afc52"/>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+					<font fontName="Lohit Devanagari" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{alamat}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

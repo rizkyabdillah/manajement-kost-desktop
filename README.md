@@ -1,4 +1,4 @@
-=======>>>>>>>>>>>> Kost Management
+=======>>>>>>>>>> KOST MANAGEMENT <<<<<<<<<<=======
 
 => Aplikasi Kost Management ini merupakan program berbasis java desktop yang ditujukan untuk keamanan kost di diwilayah keluarahan yang terdiri dari 4 aktor / user yaitu Kelurahan (Admin), Ketua RT, Pemilik Kost, Satpam.
 
@@ -20,3 +20,7 @@
    15. Restore Database
 
 => Untuk pertama kali import, pastikan setelah import program dan database lakukan import library tambahan didalam folder LIBRARY.
+
+# N O T E
+
+Jika ingin reshare mohon cantumkan AUTHOR

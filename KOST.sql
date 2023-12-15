@@ -12,7 +12,6 @@ SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -571,7 +570,7 @@ CREATE TABLE `VIEW_SATPAM` (
 --
 DROP TABLE IF EXISTS `VIEW_BUKU_DETAIL_TAMU`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `VIEW_BUKU_DETAIL_TAMU`  AS  select `BUKU_DETAIL_TAMU`.`id_buku_tamu` AS `id_buku_tamu`,`TAMU`.`nama_tamu` AS `nama_tamu`,`PENGHUNI_KOST`.`nama_penghuni` AS `nama_penghuni`,`BUKU_DETAIL_TAMU`.`agenda_tamu` AS `agenda_tamu`,`BUKU_DETAIL_TAMU`.`waktu_kunjung` AS `waktu_kunjung`,`BUKU_DETAIL_TAMU`.`waktu_pulang` AS `waktu_pulang`,`BUKU_DETAIL_TAMU`.`id_penghuni` AS `id_penghuni`,`BUKU_DETAIL_TAMU`.`id_tamu` AS `id_tamu`,`BUKU_DETAIL_TAMU`.`status` AS `status`,`BUKU_TAMU`.`id_kost` AS `id_kost`,`nama_kost` AS `nama_kost` from ((((`BUKU_TAMU` join `BUKU_DETAIL_TAMU`) join `TAMU`) join `PENGHUNI_KOST`) join `KOST`) where ((`BUKU_DETAIL_TAMU`.`id_tamu` = `TAMU`.`id_tamu`) and (`BUKU_DETAIL_TAMU`.`id_penghuni` = `PENGHUNI_KOST`.`id_penghuni`) and (`BUKU_TAMU`.`id_buku_tamu` = `BUKU_DETAIL_TAMU`.`id_buku_tamu`) and (`BUKU_TAMU`.`id_kost` = `id_kost`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `VIEW_BUKU_DETAIL_TAMU`  AS  select `BUKU_DETAIL_TAMU`.`id_buku_tamu` AS `id_buku_tamu`,`TAMU`.`nama_tamu` AS `nama_tamu`,`PENGHUNI_KOST`.`nama_penghuni` AS `nama_penghuni`,`BUKU_DETAIL_TAMU`.`agenda_tamu` AS `agenda_tamu`,`BUKU_DETAIL_TAMU`.`waktu_kunjung` AS `waktu_kunjung`,`BUKU_DETAIL_TAMU`.`waktu_pulang` AS `waktu_pulang`,`BUKU_DETAIL_TAMU`.`id_penghuni` AS `id_penghuni`,`BUKU_DETAIL_TAMU`.`id_tamu` AS `id_tamu`,`BUKU_DETAIL_TAMU`.`status` AS `status`,`BUKU_TAMU`.`id_kost` AS `id_kost`,`nama_kost` AS `nama_kost` from ((((`BUKU_TAMU` join `BUKU_DETAIL_TAMU`) join `TAMU`) join `PENGHUNI_KOST`) join `KOST`) where ((`BUKU_DETAIL_TAMU`.`id_tamu` = `TAMU`.`id_tamu`) and (`BUKU_DETAIL_TAMU`.`id_penghuni` = `PENGHUNI_KOST`.`id_penghuni`) and (`BUKU_TAMU`.`id_buku_tamu` = `BUKU_DETAIL_TAMU`.`id_buku_tamu`) and (`BUKU_TAMU`.`id_kost` = `KOST`.`id_kost`)) ;
 
 -- --------------------------------------------------------
 
@@ -580,7 +579,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `VIEW_BUKU_PENGHUNI_KOST`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `VIEW_BUKU_PENGHUNI_KOST`  AS  select `PENGHUNI_KOST`.`id_penghuni` AS `id_penghuni`,`id_kost` AS `id_kost`,`PENGHUNI_KOST`.`nama_penghuni` AS `nama_penghuni`,`nama_kost` AS `nama_kost`,`BUKU_PENGHUNI_KOST`.`tanggal_masuk` AS `tanggal_masuk`,`BUKU_PENGHUNI_KOST`.`tanggal_keluar` AS `tanggal_keluar`,`BUKU_PENGHUNI_KOST`.`status` AS `status` from ((`PENGHUNI_KOST` join `BUKU_PENGHUNI_KOST`) join `KOST`) where ((`PENGHUNI_KOST`.`id_penghuni` = `BUKU_PENGHUNI_KOST`.`id_penghuni`) and (`BUKU_PENGHUNI_KOST`.`id_kost` = `id_kost`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `VIEW_BUKU_PENGHUNI_KOST`  AS  select `PENGHUNI_KOST`.`id_penghuni` AS `id_penghuni`,`KOST`.`id_kost` AS `id_kost`,`PENGHUNI_KOST`.`nama_penghuni` AS `nama_penghuni`,`nama_kost` AS `nama_kost`,`BUKU_PENGHUNI_KOST`.`tanggal_masuk` AS `tanggal_masuk`,`BUKU_PENGHUNI_KOST`.`tanggal_keluar` AS `tanggal_keluar`,`BUKU_PENGHUNI_KOST`.`status` AS `status` from ((`PENGHUNI_KOST` join `BUKU_PENGHUNI_KOST`) join `KOST`) where ((`PENGHUNI_KOST`.`id_penghuni` = `BUKU_PENGHUNI_KOST`.`id_penghuni`) and (`BUKU_PENGHUNI_KOST`.`id_kost` = `KOST`.`id_kost`)) ;
 
 -- --------------------------------------------------------
 
@@ -589,7 +588,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `VIEW_BUKU_PENGHUNI_KOST_RT`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `VIEW_BUKU_PENGHUNI_KOST_RT`  AS  select `BUKU_PENGHUNI_KOST`.`id_penghuni` AS `id_penghuni`,`BUKU_PENGHUNI_KOST`.`id_kost` AS `id_kost`,`PENGHUNI_KOST`.`nama_penghuni` AS `nama_penghuni`,`nama_kost` AS `nama_kost`,`BUKU_PENGHUNI_KOST`.`tanggal_masuk` AS `tanggal_masuk`,`BUKU_PENGHUNI_KOST`.`tanggal_keluar` AS `tanggal_keluar`,`BUKU_PENGHUNI_KOST`.`status` AS `status`,`KETUA_RT`.`id_ketua_rt` AS `id_ketua_rt` from ((((`BUKU_PENGHUNI_KOST` join `KOST`) join `PENGHUNI_KOST`) join `KOMPLEKS`) join `KETUA_RT`) where ((`BUKU_PENGHUNI_KOST`.`id_penghuni` = `PENGHUNI_KOST`.`id_penghuni`) and (`BUKU_PENGHUNI_KOST`.`id_kost` = `id_kost`) and (`id_kompleks` = `KOMPLEKS`.`id_kompleks`) and (`KOMPLEKS`.`id_ketua_rt` = `KETUA_RT`.`id_ketua_rt`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `VIEW_BUKU_PENGHUNI_KOST_RT`  AS  select `BUKU_PENGHUNI_KOST`.`id_penghuni` AS `id_penghuni`,`BUKU_PENGHUNI_KOST`.`id_kost` AS `id_kost`,`PENGHUNI_KOST`.`nama_penghuni` AS `nama_penghuni`,`nama_kost` AS `nama_kost`,`BUKU_PENGHUNI_KOST`.`tanggal_masuk` AS `tanggal_masuk`,`BUKU_PENGHUNI_KOST`.`tanggal_keluar` AS `tanggal_keluar`,`BUKU_PENGHUNI_KOST`.`status` AS `status`,`KETUA_RT`.`id_ketua_rt` AS `id_ketua_rt` from ((((`BUKU_PENGHUNI_KOST` join `KOST`) join `PENGHUNI_KOST`) join `KOMPLEKS`) join `KETUA_RT`) where ((`BUKU_PENGHUNI_KOST`.`id_penghuni` = `PENGHUNI_KOST`.`id_penghuni`) and (`BUKU_PENGHUNI_KOST`.`id_kost` = `KOST`.`id_kost`) and (`KOST`.`id_kompleks` = `KOMPLEKS`.`id_kompleks`) and (`KOMPLEKS`.`id_ketua_rt` = `KETUA_RT`.`id_ketua_rt`)) ;
 
 -- --------------------------------------------------------
 
@@ -598,7 +597,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `VIEW_BUKU_TAMU`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `VIEW_BUKU_TAMU`  AS  select `BUKU_TAMU`.`id_buku_tamu` AS `id_buku_tamu`,`nama_kost` AS `nama_kost`,`BUKU_TAMU`.`id_kost` AS `id_kost` from (`BUKU_TAMU` join `KOST`) where (`id_kost` = `BUKU_TAMU`.`id_kost`) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `VIEW_BUKU_TAMU`  AS  select `BUKU_TAMU`.`id_buku_tamu` AS `id_buku_tamu`,`nama_kost` AS `nama_kost`,`BUKU_TAMU`.`id_kost` AS `id_kost` from (`BUKU_TAMU` join `KOST`) where (`KOST`.`id_kost` = `BUKU_TAMU`.`id_kost`) ;
 
 -- --------------------------------------------------------
 
@@ -607,7 +606,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `VIEW_BUKU_TAMU_RT`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `VIEW_BUKU_TAMU_RT`  AS  select `BUKU_TAMU`.`id_buku_tamu` AS `id_buku_tamu`,`nama_kost` AS `nama_kost`,`KETUA_RT`.`id_ketua_rt` AS `id_ketua_rt` from (((`BUKU_TAMU` join `KOST`) join `KOMPLEKS`) join `KETUA_RT`) where ((`BUKU_TAMU`.`id_kost` = `id_kost`) and (`id_kompleks` = `KOMPLEKS`.`id_kompleks`) and (`KOMPLEKS`.`id_ketua_rt` = `KETUA_RT`.`id_ketua_rt`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `VIEW_BUKU_TAMU_RT`  AS  select `BUKU_TAMU`.`id_buku_tamu` AS `id_buku_tamu`,`nama_kost` AS `nama_kost`,`KETUA_RT`.`id_ketua_rt` AS `id_ketua_rt` from (((`BUKU_TAMU` join `KOST`) join `KOMPLEKS`) join `KETUA_RT`) where ((`BUKU_TAMU`.`id_kost` = `KOST`.`id_kost`) and (`KOST`.`id_kompleks` = `KOMPLEKS`.`id_kompleks`) and (`KOMPLEKS`.`id_ketua_rt` = `KETUA_RT`.`id_ketua_rt`)) ;
 
 -- --------------------------------------------------------
 
@@ -616,7 +615,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `VIEW_BUKU_TAMU_SATPAM`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `VIEW_BUKU_TAMU_SATPAM`  AS  select `BUKU_TAMU`.`id_buku_tamu` AS `id_buku_tamu`,`nama_kost` AS `nama_kost`,`SATPAM`.`id_satpam` AS `id_satpam` from (((`BUKU_TAMU` join `KOST`) join `KOMPLEKS`) join `SATPAM`) where ((`BUKU_TAMU`.`id_kost` = `id_kost`) and (`id_kompleks` = `KOMPLEKS`.`id_kompleks`) and (`KOMPLEKS`.`id_satpam` = `SATPAM`.`id_satpam`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `VIEW_BUKU_TAMU_SATPAM`  AS  select `BUKU_TAMU`.`id_buku_tamu` AS `id_buku_tamu`,`nama_kost` AS `nama_kost`,`SATPAM`.`id_satpam` AS `id_satpam` from (((`BUKU_TAMU` join `KOST`) join `KOMPLEKS`) join `SATPAM`) where ((`BUKU_TAMU`.`id_kost` = `KOST`.`id_kost`) and (`KOST`.`id_kompleks` = `KOMPLEKS`.`id_kompleks`) and (`KOMPLEKS`.`id_satpam` = `SATPAM`.`id_satpam`)) ;
 
 -- --------------------------------------------------------
 
@@ -652,7 +651,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `VIEW_KOST`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `VIEW_KOST`  AS  select `id_kost` AS `id_kost`,`PEMILIK_KOST`.`nama_pemilik` AS `nama_pemilik`,`nama_kost` AS `nama_kost`,`jenis_kost` AS `jenis_kost`,concat('Rumah No.',`no_kost`,', ',`KOMPLEKS`.`alamat`) AS `alamat` from ((`KOST` join `PEMILIK_KOST`) join `KOMPLEKS`) where ((`id_pemilik` = `PEMILIK_KOST`.`id_pemilik`) and (`id_kompleks` = `KOMPLEKS`.`id_kompleks`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `VIEW_KOST`  AS  select `id_kost` AS `id_kost`,`PEMILIK_KOST`.`nama_pemilik` AS `nama_pemilik`,`nama_kost` AS `nama_kost`,`jenis_kost` AS `jenis_kost`,concat('Rumah No.',`no_kost`,', ',`KOMPLEKS`.`alamat`) AS `alamat` from ((`KOST` join `PEMILIK_KOST`) join `KOMPLEKS`) where ((`KOST`.`id_pemilik` = `PEMILIK_KOST`.`id_pemilik`) and (`KOST`.`id_kompleks` = `KOMPLEKS`.`id_kompleks`)) ;
 
 -- --------------------------------------------------------
 
@@ -661,7 +660,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `VIEW_KOST_RT`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `VIEW_KOST_RT`  AS  select `id_kost` AS `id_kost`,`PEMILIK_KOST`.`nama_pemilik` AS `nama_pemilik`,`nama_kost` AS `nama_kost`,`jenis_kost` AS `jenis_kost`,concat('Rumah No.',`no_kost`,', ',`KOMPLEKS`.`alamat`) AS `alamat`,`KETUA_RT`.`id_ketua_rt` AS `id_ketua_rt`,`KOMPLEKS`.`id_kompleks` AS `id_kompleks` from (((`KOST` join `PEMILIK_KOST`) join `KOMPLEKS`) join `KETUA_RT`) where ((`id_pemilik` = `PEMILIK_KOST`.`id_pemilik`) and (`id_kompleks` = `KOMPLEKS`.`id_kompleks`) and (`KOMPLEKS`.`id_ketua_rt` = `KETUA_RT`.`id_ketua_rt`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `VIEW_KOST_RT`  AS  select `id_kost` AS `id_kost`,`PEMILIK_KOST`.`nama_pemilik` AS `nama_pemilik`,`nama_kost` AS `nama_kost`,`jenis_kost` AS `jenis_kost`,concat('Rumah No.',`no_kost`,', ',`KOMPLEKS`.`alamat`) AS `alamat`,`KETUA_RT`.`id_ketua_rt` AS `id_ketua_rt`,`KOMPLEKS`.`id_kompleks` AS `id_kompleks` from (((`KOST` join `PEMILIK_KOST`) join `KOMPLEKS`) join `KETUA_RT`) where ((`KOST`.`id_pemilik` = `PEMILIK_KOST`.`id_pemilik`) and (`KOST`.`id_kompleks` = `KOMPLEKS`.`id_kompleks`) and (`KOMPLEKS`.`id_ketua_rt` = `KETUA_RT`.`id_ketua_rt`)) ;
 
 -- --------------------------------------------------------
 
@@ -670,7 +669,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `VIEW_LOG_BUKU_PENGHUNI_KOST`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `VIEW_LOG_BUKU_PENGHUNI_KOST`  AS  select `PENGHUNI_KOST`.`id_penghuni` AS `id_penghuni`,`id_kost` AS `id_kost`,`PENGHUNI_KOST`.`nama_penghuni` AS `nama_penghuni`,`nama_kost` AS `nama_kost`,`LOG_BUKU_PENGHUNI_KOST`.`tanggal_masuk` AS `tanggal_masuk`,`LOG_BUKU_PENGHUNI_KOST`.`tanggal_keluar` AS `tanggal_keluar` from ((`PENGHUNI_KOST` join `LOG_BUKU_PENGHUNI_KOST`) join `KOST`) where ((`PENGHUNI_KOST`.`id_penghuni` = `LOG_BUKU_PENGHUNI_KOST`.`id_penghuni`) and (`LOG_BUKU_PENGHUNI_KOST`.`id_kost` = `id_kost`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `VIEW_LOG_BUKU_PENGHUNI_KOST`  AS  select `PENGHUNI_KOST`.`id_penghuni` AS `id_penghuni`,`LOG_BUKU_PENGHUNI_KOST`.`id_kost` AS `id_kost`,`PENGHUNI_KOST`.`nama_penghuni` AS `nama_penghuni`,`nama_kost` AS `nama_kost`,`LOG_BUKU_PENGHUNI_KOST`.`tanggal_masuk` AS `tanggal_masuk`,`LOG_BUKU_PENGHUNI_KOST`.`tanggal_keluar` AS `tanggal_keluar` from ((`PENGHUNI_KOST` join `LOG_BUKU_PENGHUNI_KOST`) join `KOST`) where ((`PENGHUNI_KOST`.`id_penghuni` = `LOG_BUKU_PENGHUNI_KOST`.`id_penghuni`) and (`LOG_BUKU_PENGHUNI_KOST`.`id_kost` = `KOST`.`id_kost`)) ;
 
 -- --------------------------------------------------------
 
@@ -688,7 +687,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `VIEW_PEMILIK_RT`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `VIEW_PEMILIK_RT`  AS  select `PEMILIK_KOST`.`id_pemilik` AS `id_pemilik`,`PEMILIK_KOST`.`nama_pemilik` AS `nama_pemilik`,`PEMILIK_KOST`.`jenis_kelamin` AS `jenis_kelamin`,`PEMILIK_KOST`.`no_telp` AS `no_telp`,`PEMILIK_KOST`.`alamat` AS `alamat`,`USER`.`username` AS `username`,`USER`.`password` AS `password`,`KETUA_RT`.`id_ketua_rt` AS `id_ketua_rt` from ((((`PEMILIK_KOST` join `USER`) join `KOMPLEKS`) join `KETUA_RT`) join `KOST`) where ((`PEMILIK_KOST`.`id_pemilik` = `id_pemilik`) and (`id_kompleks` = `KOMPLEKS`.`id_kompleks`) and (`KOMPLEKS`.`id_ketua_rt` = `KETUA_RT`.`id_ketua_rt`) and (`PEMILIK_KOST`.`id_pemilik` = `USER`.`id_user`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `VIEW_PEMILIK_RT`  AS  select `PEMILIK_KOST`.`id_pemilik` AS `id_pemilik`,`PEMILIK_KOST`.`nama_pemilik` AS `nama_pemilik`,`PEMILIK_KOST`.`jenis_kelamin` AS `jenis_kelamin`,`PEMILIK_KOST`.`no_telp` AS `no_telp`,`PEMILIK_KOST`.`alamat` AS `alamat`,`USER`.`username` AS `username`,`USER`.`password` AS `password`,`KETUA_RT`.`id_ketua_rt` AS `id_ketua_rt` from ((((`PEMILIK_KOST` join `USER`) join `KOMPLEKS`) join `KETUA_RT`) join `KOST`) where ((`PEMILIK_KOST`.`id_pemilik` = `KOST`.`id_pemilik`) and (`KOST`.`id_kompleks` = `KOMPLEKS`.`id_kompleks`) and (`KOMPLEKS`.`id_ketua_rt` = `KETUA_RT`.`id_ketua_rt`) and (`PEMILIK_KOST`.`id_pemilik` = `USER`.`id_user`)) ;
 
 -- --------------------------------------------------------
 
@@ -706,7 +705,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `VIEW_PENGHUNI_KOST_SATPAM`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `VIEW_PENGHUNI_KOST_SATPAM`  AS  select `BUKU_PENGHUNI_KOST`.`id_penghuni` AS `id_penghuni`,`PENGHUNI_KOST`.`nama_penghuni` AS `nama_penghuni`,`nama_kost` AS `nama_kost`,`PENGHUNI_KOST`.`agama` AS `agama`,`PENGHUNI_KOST`.`tanggal_lahir` AS `tanggal_lahir`,`PENGHUNI_KOST`.`jenis_kelamin` AS `jenis_kelamin`,`PENGHUNI_KOST`.`no_telp` AS `no_telp`,`PENGHUNI_KOST`.`alamat` AS `alamat`,`SATPAM`.`id_satpam` AS `id_satpam` from ((((`BUKU_PENGHUNI_KOST` join `PENGHUNI_KOST`) join `KOST`) join `KOMPLEKS`) join `SATPAM`) where ((`BUKU_PENGHUNI_KOST`.`id_penghuni` = `PENGHUNI_KOST`.`id_penghuni`) and (`BUKU_PENGHUNI_KOST`.`id_kost` = `id_kost`) and (`id_kompleks` = `KOMPLEKS`.`id_kompleks`) and (`KOMPLEKS`.`id_satpam` = `SATPAM`.`id_satpam`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `VIEW_PENGHUNI_KOST_SATPAM`  AS  select `BUKU_PENGHUNI_KOST`.`id_penghuni` AS `id_penghuni`,`PENGHUNI_KOST`.`nama_penghuni` AS `nama_penghuni`,`nama_kost` AS `nama_kost`,`PENGHUNI_KOST`.`agama` AS `agama`,`PENGHUNI_KOST`.`tanggal_lahir` AS `tanggal_lahir`,`PENGHUNI_KOST`.`jenis_kelamin` AS `jenis_kelamin`,`PENGHUNI_KOST`.`no_telp` AS `no_telp`,`PENGHUNI_KOST`.`alamat` AS `alamat`,`SATPAM`.`id_satpam` AS `id_satpam` from ((((`BUKU_PENGHUNI_KOST` join `PENGHUNI_KOST`) join `KOST`) join `KOMPLEKS`) join `SATPAM`) where ((`BUKU_PENGHUNI_KOST`.`id_penghuni` = `PENGHUNI_KOST`.`id_penghuni`) and (`BUKU_PENGHUNI_KOST`.`id_kost` = `KOST`.`id_kost`) and (`KOST`.`id_kompleks` = `KOMPLEKS`.`id_kompleks`) and (`KOMPLEKS`.`id_satpam` = `SATPAM`.`id_satpam`)) ;
 
 -- --------------------------------------------------------
 
